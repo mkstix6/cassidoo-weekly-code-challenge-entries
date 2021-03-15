@@ -7,15 +7,15 @@
  * [1,3,3,1]
  */
 
+// Should memoize this.
 const pascals = (depth) => {
   // Zeroth case
   if (depth === 0) return [1];
   // All other cases
   const previous = pascals(depth - 1);
-  let current = [1];
-  current[depth] = 1;
-  for (let i = 1; i < depth; i++) {
-    current[i] = previous[i - 1] + previous[i];
+  let current = [];
+  for (let i = 0; i <= depth; i++) {
+    current[i] = (previous[i - 1] || 0) + (previous[i] || 0);
   }
   return current;
 };
