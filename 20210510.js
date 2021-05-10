@@ -21,8 +21,8 @@ const sameDigitsVerbose = (number) => {
 };
 
 const sameDigits = (number) =>
-  new Set(number.toString()).size ===
-  new Set(number.toString() + (number ** 3).toString()).size;
+  `${[...new Set(`${number}`)].sort()}` ===
+  `${[...new Set(`${number ** 3}`)].sort()}`;
 
 const tests = [
   [1, true],
