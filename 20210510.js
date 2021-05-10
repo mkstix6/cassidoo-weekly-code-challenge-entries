@@ -9,9 +9,9 @@
  * $ sameDigits(251895) // false
  */
 
-const sameDigits = (number) =>
-  `${[...new Set(`${number}`)].sort()}` ===
-  `${[...new Set(`${number ** 3}`)].sort()}`;
+const digitString = (number) => [...new Set(`${number}`)].sort().join("");
+const sameDigits = (a, b) => digitString(a) === digitString(b);
+const sameDigitsAsCube = (number) => sameDigits(number, number ** 3);
 
 const tests = [
   [1, true],
@@ -20,5 +20,8 @@ const tests = [
   [251895, false],
   [106239, false],
 ].forEach(([number, expected]) => {
-  console.log(sameDigits(number) === expected ? "✅ passing" : "❌ failing");
+  console.log(digitString(number));
+  console.log(
+    sameDigitsAsCube(number) === expected ? "✅ passing" : "❌ failing"
+  );
 });
