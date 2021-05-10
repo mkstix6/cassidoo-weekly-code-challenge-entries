@@ -29,6 +29,7 @@ const tests = [
   [10, true],
   [251894, true],
   [251895, false],
+  [106239, false],
 ].forEach(([number, expected]) => {
   console.log(sameDigits(number) === expected ? "✅ passing" : "❌ failing");
 });
