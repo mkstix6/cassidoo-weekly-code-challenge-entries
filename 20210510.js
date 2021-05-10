@@ -9,17 +9,6 @@
  * $ sameDigits(251895) // false
  */
 
-const sameDigitsVerbose = (number) => {
-  const numberDigits = new Set(number.toString());
-  const result = Math.pow(number, 3);
-  const resultDigits = new Set([...numberDigits, ...result.toString()]);
-  console.log(
-    { number, result, numberDigits, resultDigits },
-    numberDigits.size
-  );
-  return numberDigits.size === resultDigits.size;
-};
-
 const sameDigits = (number) =>
   `${[...new Set(`${number}`)].sort()}` ===
   `${[...new Set(`${number ** 3}`)].sort()}`;
