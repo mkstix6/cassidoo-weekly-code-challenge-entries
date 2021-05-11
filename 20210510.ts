@@ -10,8 +10,13 @@
  */
 
 const digitString = (n: number): string => [...new Set(`${n}`)].sort().join("");
+
+const identicalSets = <Type>(a: Set<Type>, b: Set<Type>): boolean =>
+  a.size === b.size && [...a].every((x) => b.has(x));
+
 const sameDigits = (a: number, b: number): boolean =>
   digitString(a) === digitString(b);
+
 const sameDigitsAsCube = (n: number): boolean => sameDigits(n, n ** 3);
 
 const tests: [number, boolean][] = [
