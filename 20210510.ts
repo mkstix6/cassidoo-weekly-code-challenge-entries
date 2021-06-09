@@ -30,3 +30,5 @@ const tests: [number, boolean][] = [
 tests.forEach(([n, expected]: [number, boolean]) => {
   console.log(sameDigitsAsCube(n) === expected ? "✅ passing" : "❌ failing");
 });
+
+export {}; // Prevent typescript complaining about global scope variables: https://stackoverflow.com/questions/40900791/cannot-redeclare-block-scoped-variable-in-unrelated-files
