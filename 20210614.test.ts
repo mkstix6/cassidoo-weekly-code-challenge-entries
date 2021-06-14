@@ -11,6 +11,28 @@ const simpletests: [[string, number], string][] = [
 *`,
   ],
   [
+    ["right", 5],
+    `*
+ *
+  *
+   *
+    *
+   *
+  *
+ *
+*`,
+  ],
+  [
+    ["right", 4],
+    `*
+ *
+  *
+   *
+  *
+ *
+*`,
+  ],
+  [
     ["left", 5],
     `    *
    *
@@ -22,6 +44,24 @@ const simpletests: [[string, number], string][] = [
    *
     *`,
   ],
+  [
+    ["left", 4],
+    `   *
+  *
+ *
+*
+ *
+  *
+   *`,
+  ],
+  [
+    ["left", 2],
+    ` *
+*
+ *`,
+  ],
+  [["left", 1], `*`],
+  [["right", 1], `*`],
 ];
 
 const macro = (t, [direction, size], expected) => {
@@ -30,5 +70,5 @@ const macro = (t, [direction, size], expected) => {
 
 simpletests.forEach((testitem, i) => {
   const [input, expected] = testitem;
-  test(`test-${input[0]}${input[1]}`, macro, input, expected);
+  test(`test: ${input[0]}–${input[1]}`, macro, input, expected);
 });
